@@ -1,0 +1,30 @@
+<div class="container" *ngIf="activities">
+<div class="row">
+    <div class="col-3" ></div>
+        <div class="col-6" style="text-align: center;">
+    <h1>Upcoming Activities</h1>
+    <h3>Below you can see all the upcoming activities available to sign up for</h3>
+    </div>
+</div>
+
+    <!-- loop through all activities and display as a card -->
+    <div class="row">
+        <div class="col-3"></div>
+        <div class="col-6">
+            <div class="row">
+                <div class="card col-6" *ngFor="let act of activities">
+                    <img class="card-img-top" style="height: 215px;" src="{{act.imageUrl}}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{act.title}}</h5>
+                        <p class="card-text">{{act.date | date}}</p>
+                        <p class="card-text">{{act.description}}</p>
+                        <a href="activity/{{act.activityId}}" class="btn btn-primary">More Details</a>
+                        <a (click)="OpenSignUp(act.activityId)" class="btn btn-success">Signup</a>
+                    </div>
+            </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+

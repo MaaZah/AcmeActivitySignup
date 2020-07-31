@@ -1,0 +1,157 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>AcmeActivitySignup</name>
+    </assembly>
+    <members>
+        <member name="T:AcmeActivitySignup.Data.BloggingContextFactory">
+            <summary>
+            Designtime dbcontext factory for code-first migrations
+            </summary>
+        </member>
+        <member name="T:AcmeActivitySignup.Data.Activity">
+            <summary>
+            Activity informaiton
+            </summary>
+        </member>
+        <member name="T:AcmeActivitySignup.Data.ActivityAttendee">
+            <summary>
+            Facilitate many-to-many relation between activities and attendees
+            </summary>
+        </member>
+        <member name="T:AcmeActivitySignup.Data.Attendee">
+            <summary>
+            Employee information
+            </summary>
+        </member>
+        <member name="T:AcmeActivitySignup.ErrorHandlingMiddleware">
+            <summary>
+            custom middleware to gracefully handle any exceptions from the request lifecycle
+            </summary>
+        </member>
+        <member name="T:AcmeActivitySignup.ItemNotFoundException">
+            <summary>
+            Custom Exception type for when an object is not found in the datastore
+            </summary>
+        </member>
+        <member name="M:AcmeActivitySignup.Logic.IActivityService.AddAttendeeToActivity(System.Int32,AcmeActivitySignup.DTOs.AttendeeDTO)">
+            <summary>
+            Add an attendee to an activity
+            </summary>
+            <param name="activityId"></param>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AcmeActivitySignup.Logic.IActivityService.GetActivityList">
+            <summary>
+            Get a list of all activites from a datastore
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:AcmeActivitySignup.Logic.IActivityService.CreateActivity(System.Collections.Generic.List{AcmeActivitySignup.DTOs.ActivityInformationDTO})">
+            <summary>
+            Add a new activity to the datastore
+            </summary>
+            <param name="values"></param>
+            <returns></returns>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:AcmeActivitySignup.Logic.IActivityService.GetActivityDetails(System.Int32)" -->
+        <member name="M:AcmeActivitySignup.Logic.IActivityService.GetActivitiesForAttendee(System.Int32)">
+            <summary>
+            Get a list of Activities attended by attendee
+            </summary>
+            <param name="attendeeId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AcmeActivitySignup.Logic.ActivityService.AddAttendeeToActivity(System.Int32,AcmeActivitySignup.DTOs.AttendeeDTO)">
+            <summary>
+            Add an attendee to an activity
+            </summary>
+            <param name="activityId"></param>
+            <param name="value"></param>
+            <returns></returns>
+            <exception cref="T:AcmeActivitySignup.ItemNotFoundException"></exception>
+            <exception cref="T:System.InvalidOperationException"></exception>
+        </member>
+        <member name="M:AcmeActivitySignup.Logic.ActivityService.GetActivityList">
+            <summary>
+            Get a list of all activities from the DbContext
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:AcmeActivitySignup.Logic.ActivityService.GetActivitiesForAttendee(System.Int32)">
+            <summary>
+            Get a list of Activities attended by a specific attendee
+            </summary>
+            <param name="attendeeId"></param>
+            <returns></returns>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:AcmeActivitySignup.Logic.ActivityService.GetActivityDetails(System.Int32)" -->
+        <member name="M:AcmeActivitySignup.Logic.ActivityService.CreateActivity(System.Collections.Generic.List{AcmeActivitySignup.DTOs.ActivityInformationDTO})">
+            <summary>
+            Add a new activity to the context
+            </summary>
+            <param name="values"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AcmeActivitySignup.Logic.IAttendeeService.CheckIfAttendeeExistsByEmail(System.String)">
+            <summary>
+            Check to see if datastore already contains an entry for an attendee with a specific email
+            </summary>
+            <param name="email"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AcmeActivitySignup.Logic.IAttendeeService.CreateNewAttendee(AcmeActivitySignup.DTOs.AttendeeDTO)">
+            <summary>
+            Create a new attendee in the datastore
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AcmeActivitySignup.Logic.AttendeeService.CheckIfAttendeeExistsByEmail(System.String)">
+            <summary>
+            Use email to check if a user has already been saved
+            </summary>
+            <param name="email"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AcmeActivitySignup.Logic.AttendeeService.CreateNewAttendee(AcmeActivitySignup.DTOs.AttendeeDTO)">
+            <summary>
+            Create a new attendee in the context
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="T:AcmeActivitySignup.ServiceExtensions">
+            <summary>
+            Service Extension methods to help clean up startup.cs and make it more readable
+            </summary>
+        </member>
+        <member name="M:AcmeActivitySignup.ServiceExtensions.ConfigureCors(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Configure cors to allow anyorigin/method/header
+            </summary>
+            <param name="services"></param>
+        </member>
+        <member name="M:AcmeActivitySignup.ServiceExtensions.ConfigureSwagger(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Configure Swagger UI
+            </summary>
+            <param name="services"></param>
+            <param name="configuration"></param>
+        </member>
+        <member name="M:AcmeActivitySignup.ServiceExtensions.ConfigureContext(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Configure the datastore in the form of a DbContext using MySQL
+            </summary>
+            <param name="services"></param>
+            <param name="configuration"></param>
+        </member>
+        <member name="M:AcmeActivitySignup.ServiceExtensions.ConfigureServiceDependencyInjection(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            Configure dependency injection for all interfaces/implementations
+            </summary>
+            <param name="services"></param>
+        </member>
+    </members>
+</doc>

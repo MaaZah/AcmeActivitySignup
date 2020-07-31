@@ -1,0 +1,5 @@
+<!-- simple generic alert -->
+<div *ngIf="message" class="col-lg-3 mx-auto text-center" style="margin-top:20px;" [ngClass]="{ 'alert': message, 'alert-success': message.type === 'success', 'alert-danger': message.type === 'error'}">
+    <span *ngIf="message.type === 'error'" class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+    {{message.text}}
+</div>

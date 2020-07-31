@@ -1,0 +1,72 @@
+<h1>Sign Up</h1>
+<h4>Please enter your information below to sign up for an activity</h4>
+
+<app-alert></app-alert>
+
+<!-- Sign up form for activities -->
+<div *ngIf="signupForm">
+    <form [formGroup]="signupForm" (ngSubmit)="OnSubmit()">
+
+        <!-- email -->
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="Email" formControlName="email"
+                [ngClass]="{ 'is-invalid': submitted && f.email.errors }">
+            <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                <div *ngIf="f.email.errors.required">Email is required</div>
+                <div *ngIf="f.email.errors.email">Please enter a valid email</div>
+            </div>
+        </div>
+
+        <!-- first Name -->
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="First Name" formControlName="firstName"
+                [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }">
+            <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+                <div *ngIf="f.firstName.errors.required">First Name is required</div>
+            </div>
+        </div>
+
+        <!-- last Name -->
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="Last Name" formControlName="lastName"
+                [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }">
+            <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
+                <div *ngIf="f.lastName.errors.required">Last Name is required</div>
+            </div>
+        </div>
+
+        <!-- Activity (selector defaults to selected activity) -->
+        <div class="form-group">
+            <label class="dark-text">Activity</label>
+            <select class="form-control" id="activity" formControlName="activity"
+                [ngClass]="{ 'is-invalid': submitted && f.activity.errors }">
+                <option *ngIf="selectedActivity" style="color: black;" [ngValue]="selectedActivity">{{selectedActivity.title}}</option>
+                <option style="color: black;" *ngFor="let a of activities" [ngValue]="a">{{a.title}}</option>
+            </select>
+            <div *ngIf="submitted && f.activity.errors" class="invalid-feedback">
+                <div *ngIf="f.activity.errors.required">Activity is required</div>
+            </div>
+        </div>
+
+        <!-- comments -->
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="Comments" formControlName="comments">
+        </div>
+
+        <!-- submit button -->
+        <div class="text-center" *ngIf="!submitted">
+            <button type="submit" class="btn btn-primary" [disabled]="disableSubmit">Confirm</button>
+            </div>
+
+        <!-- go to details button & message -->
+        <div class="text-center" *ngIf="submitted && success && selectedActivity">
+            <p>Thanks for signing up! Click below to review activity details</p>
+            <a href="activity/{{selectedActivity.activityId}}" class="btn btn-primary">Details</a>
+            </div>
+
+        <!-- error message -->
+        <div class="text-center" *ngIf="submitted && !success">
+            <p>Uh oh! Looks like you've already registered for this event, please select another </p>
+            </div>
+    </form>
+</div>
