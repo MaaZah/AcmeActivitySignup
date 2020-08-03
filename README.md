@@ -1,6 +1,12 @@
 # Acme Activity Signup
+## Description
+- Activity sign up web application that supports multiple upcoming activities
+- A user may sign up for an activity by entering their first & last names along with their email address
+- This information is saved in a database
+- A user may sign up for as many activities as they would like, however they may only sign up for any given activity once
+
 ## Frontend
-- SPA built in Angular 10
+- SPA built with Angular 10 using bootstrap & material design
 
 #### Testing
 - Unit tests focused on SignUpDialogComponent and can be found in ```src/app/_shared/dialogs/sign-up-dialog/sign-up-dialog.component.spec.ts```
