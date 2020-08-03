@@ -54,7 +54,7 @@
         </div>
 
         <!-- submit button -->
-        <div class="text-center" *ngIf="!submitted">
+        <div class="text-center" *ngIf="!success">
             <button type="submit" class="btn btn-primary" [disabled]="disableSubmit">Confirm</button>
             </div>
 
@@ -62,11 +62,6 @@
         <div class="text-center" *ngIf="submitted && success && selectedActivity">
             <p>Thanks for signing up! Click below to review activity details</p>
             <a href="activity/{{selectedActivity.activityId}}" class="btn btn-primary">Details</a>
-            </div>
-
-        <!-- error message -->
-        <div class="text-center" *ngIf="submitted && !success">
-            <p>Uh oh! Looks like you've already registered for this event, please select another </p>
             </div>
     </form>
 </div>

@@ -19,7 +19,7 @@ export class SignUpDialogComponent implements OnInit {
 
   //track state of form
   submitted = false;
-  success = true;
+  success = false;
   disableSubmit = false;
 
 
@@ -57,13 +57,16 @@ export class SignUpDialogComponent implements OnInit {
 
   OnSubmit() {
     this.submitted = true;
-    this.disableSubmit = true;
 
 
     //check errors
     if (this.signupForm.invalid) {
+      this.success = false;
       return;
     }
+
+
+    this.disableSubmit = true;
 
     //build request params
     let attendee = new AttendeeInformation();
